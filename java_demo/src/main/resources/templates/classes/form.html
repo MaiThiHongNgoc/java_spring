@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quản lý lớp học</title>
+</head>
+<body>
+<h2>Thêm / Chỉnh sửa Lớp học</h2>
+<form th:action="@{/classes/update/{id}(id=${classes != null ? classes.id : 0})}" method="post">
+    <input type="hidden" th:if="${classes.id}"/>
+    <label for="name">Tên lớp:</label>
+    <input type="text" id="name" required />
+    <button type="submit">Lưu</button>
+</form>
+<a href="/classes">Quay lại</a>
+</body>
+</html>
