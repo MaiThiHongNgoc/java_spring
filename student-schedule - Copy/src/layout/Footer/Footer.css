@@ -1,0 +1,144 @@
+.footer {
+    background-color: #2E8B57;
+    color: white;
+    width: auto;
+    padding: 50px 20px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 280px;
+    max-width: 400px;
+  }
+  
+  .footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #FFA500;
+  }
+  
+  .footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .icon {
+    color: #FFA500;
+  }
+  
+  .newsletter {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .newsletter input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+  
+  .newsletter button {
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+  }
+  
+  .instagram-images {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .instagram-images img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #FFA500;
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .footer-links a:hover {
+    color: #FFA500;
+  }
+  
+  /* Responsive */
+  @media (max-width: 992px) {
+    .footer-container {
+      justify-content: center;
+    }
+  
+    .footer-section {
+      text-align: center;
+    }
+  
+    .newsletter {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-section {
+      max-width: 100%;
+    }
+  
+    .newsletter {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .newsletter input {
+      width: 90%;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+  
+    .newsletter button {
+      width: 50%;
+      border-radius: 5px;
+    }
+  }
+  
