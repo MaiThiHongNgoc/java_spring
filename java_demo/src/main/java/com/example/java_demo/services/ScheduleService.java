@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ScheduleService {
@@ -32,15 +34,18 @@ public class ScheduleService {
     }
 
     // Sinh viên đăng ký lớp học
-    public Schedule registerClass(Long studentId, Long classScheduleId) {
+    public Map<String, Object> registerClass(Long studentId, Long classScheduleId) {
         Student student = studentRepository.findById(studentId)
                 .orElseThrow(() -> new RuntimeException("Student not found"));
 
         ClassSchedule classSchedule = classScheduleRepository.findById(classScheduleId)
                 .orElseThrow(() -> new RuntimeException("Class Schedule not found"));
 
+        // Lấy danh sách lớp đã đăng ký của học sinh
+        List<Schedule> registeredSchedules = scheduleRepository.findByStudent(student);
+
         // Kiểm tra xem sinh viên đã đăng ký lớp này chưa
-        if (scheduleRepository.findByStudent(student).stream()
+        if (registeredSchedules.stream()
                 .anyMatch(schedule -> schedule.getClassSchedule().getId().equals(classScheduleId))) {
             throw new RuntimeException("Student is already registered for this class.");
         }
@@ -56,7 +61,14 @@ public class ScheduleService {
         schedule.setStudent(student);
         schedule.setClassSchedule(classSchedule);
         schedule.setCanEdit(true);
-        return scheduleRepository.save(schedule);
+        Schedule savedSchedule = scheduleRepository.save(schedule);
+
+        // Trả về danh sách lớp đã đăng ký cùng với lịch mới
+        Map<String, Object> response = new HashMap<>();
+        response.put("registeredClasses", registeredSchedules);
+        response.put("newSchedule", savedSchedule);
+
+        return response;
     }
 
     // Sinh viên thay đổi lớp nếu vẫn còn thời gian chỉnh sửa
@@ -81,6 +93,9 @@ public class ScheduleService {
         return scheduleRepository.save(schedule);
     }
 
+    public List<Schedule> getAllSchedules() {
+        return scheduleRepository.findAllSchedules();
+    }
     // Sinh viên hủy đăng ký lớp nếu còn thời gian chỉnh sửa
     public void deleteSchedule(Long scheduleId) {
         Schedule schedule = scheduleRepository.findById(scheduleId)
@@ -92,4 +107,5 @@ public class ScheduleService {
 
         scheduleRepository.delete(schedule);
     }
+
 }

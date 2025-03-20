@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -14,6 +15,10 @@ public class ScheduleController {
 
     @Autowired
     private ScheduleService scheduleService;
+    @GetMapping("/all")
+    public List<Schedule> getAllSchedules() {
+        return scheduleService.getAllSchedules();
+    }
 
     // Lấy danh sách lớp học của sinh viên
     @GetMapping("/student/{studentId}")
@@ -23,7 +28,7 @@ public class ScheduleController {
 
     // Sinh viên đăng ký lớp học
     @PostMapping("/register")
-    public Schedule registerClass(@RequestParam Long studentId, @RequestParam Long classScheduleId) {
+    public Map<String, Object> registerClass(@RequestParam Long studentId, @RequestParam Long classScheduleId) {
         return scheduleService.registerClass(studentId, classScheduleId);
     }
 

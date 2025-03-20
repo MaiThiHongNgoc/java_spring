@@ -1,0 +1,147 @@
+/* Toàn bộ container */
+.student-class-container {
+    max-width: 80%;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+/* Tiêu đề chính */
+.student-class-container h2 {
+    font-size: 28px;
+    color: #2E8B57;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Form nhập liệu */
+.student-class-form, .student-transfer-form, .student-filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.student-class-form input,
+.student-transfer-form input,
+.student-filter-container input {
+    padding: 14px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.student-class-form input:focus,
+.student-transfer-form input:focus,
+.student-filter-container input:focus {
+    border-color: #2E8B57;
+    outline: none;
+}
+
+/* Nút bấm */
+.student-class-button, .student-transfer-button, .student-filter-button {
+    background: #2E8B57;
+    color: white;
+    border: none;
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.student-class-button:hover,
+.student-transfer-button:hover,
+.student-filter-button:hover {
+    background: white;
+    color: #2E8B57;
+    border: 2px solid #2E8B57;
+}
+
+/* Bảng danh sách */
+.student-class-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.student-class-table th, 
+.student-class-table td {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.student-class-table th {
+    background: #FFA500;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Hàng lẻ có màu nền nhẹ */
+.student-class-table tbody tr:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+/* Hiệu ứng hover */
+.student-class-table tbody tr:hover {
+    background: #e2e6ea;
+}
+
+/* Nút xóa */
+.student-delete-button {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.student-delete-button:hover {
+    background: #c82333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .student-class-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .student-class-form, .student-transfer-form, .student-filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .student-class-table th, .student-class-table td {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
